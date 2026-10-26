@@ -117,6 +117,14 @@
                     </button>
                 </div>
 
+  <!-- Dark Mode Toggle Button -->
+                <button id="themeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-600 transition">
+                    <i id="themeIcon" class="fa-solid fa-moon text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+                
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
                     <button onclick="toggleMobileMenu()" class="text-slate-300 p-2 rounded-lg focus:outline-none">
@@ -125,6 +133,67 @@
                 </div>
             </div>
         </div>
+
+                <!-- Interactive Countdown Card -->
+            <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-lg border border-slate-200/80 dark:border-slate-700 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-3 mb-4">
+                        <h2 class="font-bold text-lg flex items-center gap-2">
+                            <i class="fa-solid fa-clock text-simakOrange-600"></i> Target Waktu SNBT
+                        </h2>
+                        <button onclick="toggleDateSettings()" class="text-xs text-simakOrange-600 hover:underline font-semibold">
+                            <i class="fa-solid fa-pen-to-square"></i> Atur Tanggal
+                        </button>
+                    </div>
+
+                    <!-- Input Settings Form (Hidden by default or toggled) -->
+                    <div id="dateSettings" class="hidden bg-slate-50 dark:bg-slate-900 p-4 rounded-xl mb-4 space-y-3 border border-slate-200 dark:border-slate-700">
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Tanggal Mulai Belajar (H+):</label>
+                            <input type="date" id="startDateInput" class="w-full text-xs p-2 rounded-lg border dark:bg-slate-800 border-slate-300 dark:border-slate-600">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Tanggal UTBK / SNBT (H-):</label>
+                            <input type="date" id="utbkDateInput" class="w-full text-xs p-2 rounded-lg border dark:bg-slate-800 border-slate-300 dark:border-slate-600">
+                        </div>
+                        <button onclick="saveDates()" class="w-full gradient-simak text-white font-bold text-xs py-2 rounded-lg shadow hover:opacity-90">
+                            Simpan Target
+                        </button>
+                    </div>
+
+                    <!-- Countdown Displays -->
+                    <div class="space-y-4">
+                        <!-- H+ Belajar -->
+                        <div class="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-700 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Konsistensi Belajar</span>
+                                <span class="text-xs text-slate-500 dark:text-slate-400">Telah berjalan sejak mulai</span>
+                            </div>
+                            <div class="text-right">
+                                <span id="dayPlusDisplay" class="text-2xl font-black text-simakOrange-600">H+1</span>
+                                <span class="text-xs font-bold block text-slate-400">Hari</span>
+                            </div>
+                        </div>
+
+                        <!-- H- UTBK -->
+                        <div class="bg-simakRed-50 dark:bg-simakRed-950/30 p-4 rounded-2xl border border-simakRed-100 dark:border-simakRed-900/50 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-simakRed-600 dark:text-simakRed-400 uppercase tracking-wider block">Sisa Waktu UTBK</span>
+                                <span class="text-xs text-slate-500 dark:text-slate-400">Sebelum Ujian Dimulai</span>
+                            </div>
+                            <div class="text-right">
+                                <span id="dayMinusDisplay" class="text-3xl font-black text-simakRed-600 dark:text-simakRed-400">H-45</span>
+                                <span class="text-xs font-bold block text-simakRed-500">Hari Lagi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-xs text-center text-slate-400 mt-4 italic">
+                    "Kunci anak SMK lulus SNBT: Konsisten 20 menit per hari daripada 5 jam sistem semalam!"
+                </p>
+            </div>
+        </section>
 
         <!-- Mobile Nav Menu -->
         <div id="mobileMenu" class="hidden md:hidden bg-cardBg border-b border-cardBorder px-4 pt-2 pb-4 space-y-2">
